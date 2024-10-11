@@ -56,3 +56,41 @@ Para enviar un número en formato big-endian, es necesario invertir el orden de 
 
 
 ### **Ejercicio 5: envía tres números en punto flotante**
+
+void setup() {
+    Serial.begin(115200);
+}
+
+void loop() {
+    // Definir dos números flotantes
+    static float num1 = 3589.3645;
+    static float num2 = 123.456;
+    static uint8_t arr1[4] = {0};
+    static uint8_t arr2[4] = {0};
+
+    if (Serial.available()) {
+        if (Serial.read() == 's') {
+            // Copiar los bytes de ambos números en los arreglos
+            memcpy(arr1, (uint8_t *)&num1, 4);
+            memcpy(arr2, (uint8_t *)&num2, 4);
+
+            // Transmitir en formato little-endian
+            Serial.println("Transmitting in Little-endian:");
+            for (int8_t i = 0; i < 4; i++) {
+                Serial.write(arr1[i]);
+            }
+            for (int8_t i = 0; i < 4; i++) {
+                Serial.write(arr2[i]);
+            }
+
+            // Transmitir en formato big-endian
+            Serial.println("Transmitting in Big-endian:");
+            for (int8_t i = 3; i >= 0; i--) {
+                Serial.write(arr1[i]);
+            }
+            for (int8_t i = 3; i >= 0; i--) {
+                Serial.write(arr2[i]);
+            }
+        }
+    }
+}
