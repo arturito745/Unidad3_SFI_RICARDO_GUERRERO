@@ -17,12 +17,23 @@ Integrar aplicaciones interactivas y periféricos utilizando protocolos seriales
 
 Durante la lectura, intenta dar respuestas a las siguientes preguntas:
 
-##### - ¿Cómo se ve un protocolo binario?
+#### - ¿Cómo se ve un protocolo binario?
 Un protocolo binario consiste en una serie de bits (0s y 1s) organizados bajo un formato específico. Esta serie se emplea para transmitir datos de forma eficiente entre dos sistemas. A diferencia del texto comprensible para humanos, los mensajes binarios son más compactos, ocupan menos espacio y se envían en menos tiempo.
-##### - ¿Puedes describir las partes de un mensaje?
-##### - ¿Para qué sirve cada parte del mensaje?
+#### - ¿Puedes describir las partes de un mensaje?
+Checksum o CRC:
+Es un valor que asegura que el mensaje no haya sido alterado, ayudando a identificar errores en la transmisión.
 
-#### **Ejercicio 2: experimento**
+Final de Mensaje (Footer):
+Es un marcador que señala el cierre del mensaje, si resulta necesario.
+
+Cabecera (Header):
+Incluye información adicional sobre el mensaje, como el tipo, la versión del protocolo, el tamaño, entre otros detalles.
+
+Cuerpo (Payload):
+Contiene los datos esenciales que se están enviando, ya sea información útil o instrucciones.
+#### - ¿Para qué sirve cada parte del mensaje?
+
+### **Ejercicio 2: experimento**
 
 En [este](https://www.arduino.cc/reference/en/language/functions/communication/serial/) enlace vas a mirar los siguientes métodos. Te pediré que, por favor, los tengas a mano porque te servirán para resolver problemas. Además, en este punto, hagamos un repaso de las funciones que han apoyado la comunicación seral:
 
