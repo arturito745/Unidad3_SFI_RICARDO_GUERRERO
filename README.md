@@ -105,3 +105,8 @@ envía un byte específico a través del puerto serial, lo que implica que se es
 
 ###### El tercer fragmento de código:
 se dedica a leer 4 bytes que han sido enviados desde el microcontrolador y los imprime en formato hexadecimal. Este proceso es crucial, ya que permite verificar y visualizar los datos que se reciben, asegurando que la comunicación entre el dispositivo y el microcontrolador esté funcionando correctamente y que los datos sean los esperados.
+
+## **Ejercicio 7: RETO**
+
+Vas a enviar 2 números en punto flotante desde un microcontrolador a una aplicación en Unity usando comunicaciones binarias. Además, inventa una aplicación en Unity que modifique dos dimensiones de un *game object* usando los valores recibidos.
+
