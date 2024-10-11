@@ -9,9 +9,9 @@ En esta unidad seguiremos profundizando en la integración de dispositivos perif
 
 Integrar aplicaciones interactivas y periféricos utilizando protocolos seriales binarios.
 
-### **Trayecto de actividades**
+#### **Trayecto de actividades**
 
-#### **Ejercicio 1: introducción a los protocolos binarios - caso de estudio**
+### **Ejercicio 1: introducción a los protocolos binarios - caso de estudio**
 
 ¿Cómo se ve un protocolo binario? Para explorar este concepto te voy a mostrar una hoja de datos de un [sensor](http://www.chafon.com/productdetails.aspx?pid=382) comercial que usa un protocolo de comunicación binario. La idea es que tu explores su hoja de datos ([datasheet](https://drive.google.com/file/d/1uDtgNkUCknkj3iTkykwhthjLoTGJCcea/view?pli=1)), tanto como sea posible, invitándote a que observes con detenimiento hasta la página 5.
 
@@ -43,9 +43,16 @@ Contiene los datos esenciales que se están enviando, ya sea información útil 
 
 En [este](https://www.arduino.cc/reference/en/language/functions/communication/serial/) enlace vas a mirar los siguientes métodos. Te pediré que, por favor, los tengas a mano porque te servirán para resolver problemas. Además, en este punto, hagamos un repaso de las funciones que han apoyado la comunicación seral:
 
-### ¿Sospecha por qué se ha excluido? La razón es porque en un protocolo binario usualmente no tiene un carácter de FIN DE MENSAJE, como si ocurre con los protocolos ASCII, donde usualmente el último carácter es el `\n`.
+#### ¿Sospecha por qué se ha excluido? La razón es porque en un protocolo binario usualmente no tiene un carácter de FIN DE MENSAJE, como si ocurre con los protocolos ASCII, donde usualmente el último carácter es el `\n`.
 `Serial.readBytesUntil()` fue excluida porque está diseñada para leer hasta un carácter específico, como en los protocolos ASCII con `\n` al final. En protocolos binarios, no hay un carácter de fin de mensaje, por lo que se usa la longitud del mensaje en la cabecera.
 
 ### **Ejercicio 4: transmitir números en punto flotante**
 
+#### - ¿En qué *endian* estamos transmitiendo el número?
+Los procesadores de las placas Arduino con arquitectura AVR, por defecto, emplean el formato little-endian.
 
+#### - Y si queremos transmitir en el *endian* contrario, ¿Cómo se modifica el código?
+Para enviar un número en formato big-endian, es necesario invertir el orden de los bytes antes de la transmisión. Esto se logra cambiando manualmente las posiciones de los bytes en un buffer previo al envío.
+
+
+### **Ejercicio 5: envía tres números en punto flotante**
