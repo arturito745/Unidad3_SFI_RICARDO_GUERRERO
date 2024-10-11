@@ -32,9 +32,20 @@ Incluye información adicional sobre el mensaje, como el tipo, la versión del p
 Cuerpo (Payload):
 Contiene los datos esenciales que se están enviando, ya sea información útil o instrucciones.
 #### - ¿Para qué sirve cada parte del mensaje?
+- Cabecera (Header):  Proporciona detalles sobre el mensaje, como su tipo, protocolo y tamaño, permitiendo que se gestione correctamente.
 
+- Cuerpo (Payload): Contiene la información principal o comandos que se están enviando al destinatario.
+
+- Checksum o CRC: Asegura que el mensaje no tenga errores al comparar un valor enviado con el valor calculado al recibirlo.
+
+- Final de Mensaje (Footer): Marca dónde termina el mensaje para que el receptor sepa hasta qué punto procesarlo.
 ### **Ejercicio 2: experimento**
 
 En [este](https://www.arduino.cc/reference/en/language/functions/communication/serial/) enlace vas a mirar los siguientes métodos. Te pediré que, por favor, los tengas a mano porque te servirán para resolver problemas. Además, en este punto, hagamos un repaso de las funciones que han apoyado la comunicación seral:
 
-##### ¿Sospecha por qué se ha excluido? La razón es porque en un protocolo binario usualmente no tiene un carácter de FIN DE MENSAJE, como si ocurre con los protocolos ASCII, donde usualmente el último carácter es el `\n`.
+### ¿Sospecha por qué se ha excluido? La razón es porque en un protocolo binario usualmente no tiene un carácter de FIN DE MENSAJE, como si ocurre con los protocolos ASCII, donde usualmente el último carácter es el `\n`.
+`Serial.readBytesUntil()` fue excluida porque está diseñada para leer hasta un carácter específico, como en los protocolos ASCII con `\n` al final. En protocolos binarios, no hay un carácter de fin de mensaje, por lo que se usa la longitud del mensaje en la cabecera.
+
+### **Ejercicio 4: transmitir números en punto flotante**
+
+
