@@ -63,8 +63,8 @@ void setup() {
 
 void loop() {
     // Definir dos números flotantes
-    static float num1 = 3589.3645;
-    static float num2 = 123.456;
+    static float num1 = 4567.8912;
+    static float num2 = 987.654;
     static uint8_t arr1[4] = {0};
     static uint8_t arr2[4] = {0};
 
@@ -94,3 +94,14 @@ void loop() {
         }
     }
 }
+
+### Ejercicio 6: aplicación interactiva
+
+###### El primer fragmento: 
+de código se encarga de configurar y abrir el puerto serial, estableciendo la comunicación entre el dispositivo y el microcontrolador. Esto es esencial para permitir el intercambio de datos y garantizar que ambos dispositivos puedan enviar y recibir información de manera efectiva.
+
+###### El segundo fragmento:
+envía un byte específico a través del puerto serial, lo que implica que se están transmitiendo datos hacia el microcontrolador. Esta acción es fundamental para el control y la interacción con el microcontrolador, ya que le permite recibir órdenes o información necesaria para su funcionamiento.
+
+###### El tercer fragmento de código:
+se dedica a leer 4 bytes que han sido enviados desde el microcontrolador y los imprime en formato hexadecimal. Este proceso es crucial, ya que permite verificar y visualizar los datos que se reciben, asegurando que la comunicación entre el dispositivo y el microcontrolador esté funcionando correctamente y que los datos sean los esperados.
